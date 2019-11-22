@@ -3,11 +3,11 @@ Generic crypto cracker for CTFs and fun
 
 ## Supported Ciphers
 
-Caesar
+* Caesar
+* Transposition (Simple)
 
 ## Planned Ciphers/Utils
 
-* Transposition
 * Substitution (Simple, Atbash, Affine)
 * Vigenere
 * Baconian
