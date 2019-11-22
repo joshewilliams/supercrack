@@ -12,8 +12,10 @@ func check(err error) {
 	}
 }
 
+// ResultsStringSlice type used to simplify information output via STDOUT or specified file
 type ResultsStringSlice []string
 
+// WriteOutput function for the ResultsStringSlice type to simplify information output
 func (r ResultsStringSlice) WriteOutput(outputFile string) {
 	var resultsString string
 	for _, i := range r {

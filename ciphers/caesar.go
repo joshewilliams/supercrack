@@ -1,4 +1,4 @@
-package classical
+package ciphers
 
 import (
 	"fmt"
@@ -7,6 +7,7 @@ import (
 	"github.com/joshewilliams/supercrack/data"
 )
 
+// Caesar function attempts to bruteforce a string believed to be encrypted by the Caesar cipher
 func Caesar(ciphertext string) data.ResultsStringSlice {
 	var results []string
 	for i := 0; i < 26; i++ {

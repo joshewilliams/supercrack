@@ -3,16 +3,9 @@ package main
 import (
 	"flag"
 	"fmt"
-	"log"
 
-	"github.com/joshewilliams/supercrack/classical"
+	"github.com/joshewilliams/supercrack/ciphers"
 )
-
-func check(e error) {
-	if e != nil {
-		log.Fatal(e)
-	}
-}
 
 func main() {
 	fmt.Printf("SUPERCRACK\n\n")
@@ -32,10 +25,10 @@ func main() {
 	switch cipher {
 	case "caesar":
 		fmt.Println("Caesar Cipher Cracker")
-		classical.Caesar(ciphertext).WriteOutput(output)
+		ciphers.Caesar(ciphertext).WriteOutput(output)
 	case "transposition":
 		fmt.Println("Transposition Cipher Cracker")
-		classical.Transposition(ciphertext).WriteOutput(output)
+		ciphers.Transposition(ciphertext).WriteOutput(output)
 	default:
 		fmt.Println("Bad cipher name")
 	}

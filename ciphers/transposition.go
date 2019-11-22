@@ -1,4 +1,4 @@
-package classical
+package ciphers
 
 import (
 	"fmt"
@@ -23,13 +23,16 @@ func transpositionDecrypt(input string, key int) string {
 	for i := 0; i < len(input); i++ {
 		cleartext[i%key] = cleartext[i%key] + string(input[i])
 	}
+
 	return strings.Join(cleartext, "")
 }
 
+// Transposition function bruteforces a given string believed to be encrypted via a simple transposition cipher
 func Transposition(input string) data.ResultsStringSlice {
 	var results data.ResultsStringSlice
 	for i := 1; i < len(input); i++ {
 		results = append(results, fmt.Sprintf("%d: %s", i, transpositionDecrypt(input, i)))
 	}
+
 	return results
 }
