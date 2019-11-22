@@ -14,7 +14,7 @@ func GetLetterPositionLower(data rune) int {
 	return pos[data]
 }
 
-func NewLetterPositionLower(data int) rune {
+func SetLetterPositionLower(data int) rune {
 	pos := make(map[int]rune)
 	for i, j := range LOWER {
 		pos[i] = j
@@ -31,7 +31,7 @@ func GetLetterPositionUpper(data rune) int {
 	return pos[data]
 }
 
-func NewLetterPositionUpper(data int) rune {
+func SetLetterPositionUpper(data int) rune {
 	pos := make(map[int]rune)
 	for i, j := range UPPER {
 		pos[i] = j
