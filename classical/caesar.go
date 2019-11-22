@@ -7,7 +7,7 @@ import (
 	"github.com/joshewilliams/supercrack/data"
 )
 
-func Caesar(ciphertext string) []string {
+func Caesar(ciphertext string) data.ResultsStringSlice {
 	var results []string
 	for i := 0; i < 26; i++ {
 		var tmp []rune

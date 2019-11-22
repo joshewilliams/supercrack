@@ -3,6 +3,8 @@ package classical
 import (
 	"math"
 	"strings"
+
+	"github.com/joshewilliams/supercrack/data"
 )
 
 func transpositionEncrypt(input string, key int) string {
@@ -23,6 +25,10 @@ func transpositionDecrypt(input string, key int) string {
 	return strings.Join(cleartext, "")
 }
 
-func Transposition(input string) string {
-	return transpositionDecrypt(input, 2)
+func Transposition(input string) data.ResultsStringSlice {
+	var results data.ResultsStringSlice
+	for i := 1; i < len(input); i++ {
+		results = append(results, transpositionDecrypt(input, i))
+	}
+	return results
 }
