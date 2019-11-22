@@ -1,6 +1,7 @@
 package classical
 
 import (
+	"fmt"
 	"math"
 	"strings"
 
@@ -28,7 +29,7 @@ func transpositionDecrypt(input string, key int) string {
 func Transposition(input string) data.ResultsStringSlice {
 	var results data.ResultsStringSlice
 	for i := 1; i < len(input); i++ {
-		results = append(results, transpositionDecrypt(input, i))
+		results = append(results, fmt.Sprintf("%d: %s", i, transpositionDecrypt(input, i)))
 	}
 	return results
 }
