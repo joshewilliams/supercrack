@@ -12,7 +12,9 @@ func Caesar(ciphertext string) []string {
 	for i := 0; i < 26; i++ {
 		var tmp []rune
 		for _, j := range ciphertext {
-			if unicode.IsUpper(j) {
+			if !unicode.In(j, unicode.Letter) {
+				tmp = append(tmp, j)
+			} else if unicode.IsUpper(j) {
 				tmp = append(tmp, data.SetLetterByPositionUpper((data.GetLetterPositionUpper(j)+i)%26))
 			} else {
 				tmp = append(tmp, data.SetLetterByPositionLower((data.GetLetterPositionLower(j)+i)%26))
