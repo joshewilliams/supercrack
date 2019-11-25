@@ -5,7 +5,7 @@ import (
 	"math"
 	"strings"
 
-	"github.com/joshewilliams/supercrack/data"
+	"github.com/joshewilliams/supercrack/util"
 )
 
 func transpositionEncrypt(input string, key int) string {
@@ -28,8 +28,8 @@ func transpositionDecrypt(input string, key int) string {
 }
 
 // Transposition function bruteforces a given string believed to be encrypted via a simple transposition cipher
-func Transposition(input string) data.ResultsStringSlice {
-	var results data.ResultsStringSlice
+func Transposition(input string) util.ResultsStringSlice {
+	var results util.ResultsStringSlice
 	for i := 1; i < len(input); i++ {
 		results = append(results, fmt.Sprintf("%d: %s", i, transpositionDecrypt(input, i)))
 	}

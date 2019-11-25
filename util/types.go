@@ -1,4 +1,4 @@
-package data
+package util
 
 import (
 	"fmt"
@@ -27,4 +27,12 @@ func (r ResultsStringSlice) WriteOutput(outputFile string) {
 	} else {
 		fmt.Println(resultsString)
 	}
+}
+
+// Parameters type to store/parse parameters used
+type Parameters struct {
+	Cipher     string
+	Ciphertext []byte
+	File       string
+	Output     string
 }
