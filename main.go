@@ -11,6 +11,16 @@ import (
 	"github.com/joshewilliams/supercrack/util"
 )
 
+func help() {
+	fmt.Println("supercrack is your almost one stop shop for crypto cracking help")
+	fmt.Println("Usage: supercrack <cipher|help|exit> OPTIONS")
+	fmt.Printf("\nSupported Ciphers:\n\ncaesar\ntransposition (simple)\n\n")
+	fmt.Printf("OPTIONS:\n\n")
+	fmt.Printf("ciphertext=    Ciphertext string to crack\n")
+	fmt.Printf("file=          Input filename\n")
+	fmt.Printf("output=        Output filename\n\n")
+}
+
 func main() {
 	fmt.Printf("SUPERCRACK\n\n")
 
@@ -26,6 +36,9 @@ mainLoop:
 			p.Cipher = "caesar"
 		case "transposition":
 			p.Cipher = "transposition"
+		case "help":
+			help()
+			continue mainLoop
 		case "exit":
 			os.Exit(0)
 		default:

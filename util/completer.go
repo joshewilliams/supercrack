@@ -7,6 +7,7 @@ func Completer(d prompt.Document) []prompt.Suggest {
 		// Cipherlist
 		{Text: "caesar", Description: "Caesar cipher"},
 		{Text: "transposition", Description: "Transposition cipher (simple)"},
+		{Text: "help", Description: "Help menu"},
 		{Text: "exit", Description: "Exit supercrack"},
 		//Parameters
 		{Text: "ciphertext=", Description: "Ciphertext to crack"},
