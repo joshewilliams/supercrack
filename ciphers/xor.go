@@ -23,11 +23,11 @@ func xor(src, key []byte) []byte {
 	out := make([]byte, len(src), len(src))
 	if len(key) <= 2 {
 		for i := range src {
-			out[i] = src[i] & key[0]
+			out[i] = src[i] ^ key[0]
 		}
 	} else {
 		for i := range src {
-			out[i] = src[i] & key[i]
+			out[i] = src[i] ^ key[i]
 		}
 	}
 	return out
