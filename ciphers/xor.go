@@ -12,7 +12,8 @@ import (
 )
 
 type XorParameters struct {
-	Key []byte
+	Key  []byte
+	Flag []byte
 }
 
 func (x *XorParameters) String() string {
@@ -33,7 +34,6 @@ func xor(src, key []byte) []byte {
 	return out
 }
 
-// Xor isn't working correctly for some reason. Isn't returning results correctly.
 func Xor(p *util.Parameters) []byte {
 	x := XorParameters{}
 	XorOptionsMenu(&x)
@@ -46,6 +46,7 @@ func XorOptionsCompleter(d prompt.Document) []prompt.Suggest {
 		{Text: "key=", Description: "Key to XOR against"},
 		{Text: "hex", Description: "Key is hex encoded"},
 		{Text: "b64", Description: "Key is b64 encoded"},
+		{Text: "flag=", Description: "Known plaintext in the form of a prefix flag"},
 	}
 	return prompt.FilterHasPrefix(s, d.GetWordBeforeCursor(), true)
 }
@@ -76,6 +77,8 @@ menuLoop:
 				continue menuLoop
 			}
 			x.Key = x.Key[:len]
+		case "flag":
+			x.Flag = []byte(splitCmd[1])
 		case "run":
 			break menuLoop
 		case "info":
