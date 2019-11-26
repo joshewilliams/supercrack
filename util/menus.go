@@ -22,7 +22,7 @@ func help() {
 func MainMenu(p *Parameters) {
 menuLoop:
 	for {
-		cmd := prompt.Input("supercrack > ", MainMenuCompleter)
+		cmd := prompt.Input("supercrack > ", MainMenuCompleter, prompt.OptionPrefixTextColor(prompt.Red))
 
 		switch strings.ToLower(cmd) {
 		case "caesar":
@@ -45,7 +45,7 @@ menuLoop:
 func GeneralOptionsMenu(p *Parameters) {
 menuLoop:
 	for {
-		cmd := prompt.Input("supercrack > ", GeneralOptionsCompleter)
+		cmd := prompt.Input("supercrack > ", GeneralOptionsCompleter, prompt.OptionPrefixTextColor(prompt.Red))
 		splitCmd := strings.SplitN(cmd, "=", 2)
 
 		switch splitCmd[0] {
