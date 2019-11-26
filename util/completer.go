@@ -12,13 +12,15 @@ func MainMenuCompleter(d prompt.Document) []prompt.Suggest {
 	}
 	return prompt.FilterHasPrefix(s, d.GetWordBeforeCursor(), true)
 }
-func SetupCompleter(d prompt.Document) []prompt.Suggest {
+func GeneralOptionsCompleter(d prompt.Document) []prompt.Suggest {
 	s := []prompt.Suggest{
 		//Parameters
 		{Text: "ciphertext=", Description: "Ciphertext to crack"},
 		{Text: "file=", Description: "Read input file"},
 		{Text: "output=", Description: "Output file name"},
+		{Text: "info", Description: "Print current parameters"},
 		{Text: "run", Description: "Execute cracking"},
+		{Text: "exit", Description: "Exit this program"},
 	}
 	return prompt.FilterHasPrefix(s, d.GetWordBeforeCursor(), true)
 }

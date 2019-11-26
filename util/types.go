@@ -36,3 +36,7 @@ type Parameters struct {
 	File       string
 	Output     string
 }
+
+func (p Parameters) String() string {
+	return fmt.Sprintf("\nCipher:    \t%s\nCiphertext:\t%s\nFile:      \t%s\nOutput:    \t%s\n", p.Cipher, string(p.Ciphertext), p.File, p.Output)
+}
