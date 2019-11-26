@@ -33,6 +33,7 @@ func xor(src, key []byte) []byte {
 	return out
 }
 
+// Xor isn't working correctly for some reason. Isn't returning results correctly.
 func Xor(p *util.Parameters) []byte {
 	x := XorParameters{}
 	XorOptionsMenu(&x)
