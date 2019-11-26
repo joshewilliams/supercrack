@@ -7,6 +7,7 @@ func MainMenuCompleter(d prompt.Document) []prompt.Suggest {
 		// Cipherlist
 		{Text: "caesar", Description: "Caesar cipher"},
 		{Text: "transposition", Description: "Transposition cipher (simple)"},
+		{Text: "xor", Description: "XOR"},
 		{Text: "help", Description: "Help menu"},
 		{Text: "exit", Description: "Exit supercrack"},
 	}

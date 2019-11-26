@@ -33,6 +33,9 @@ menuLoop:
 		case "transposition":
 			p.Cipher = "transposition"
 			break menuLoop
+		case "xor":
+			p.Cipher = "xor"
+			break menuLoop
 		case "help":
 			help()
 		case "exit":

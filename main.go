@@ -14,12 +14,13 @@ func main() {
 		util.MainMenu(&p)
 		util.GeneralOptionsMenu(&p)
 
-		fmt.Printf("Cracking %s cipher\n", p.Cipher)
 		switch p.Cipher {
 		case "caesar":
 			ciphers.Caesar(string(p.Ciphertext)).WriteOutput(p.Output)
 		case "transposition":
 			ciphers.Transposition(string(p.Ciphertext)).WriteOutput(p.Output)
+		case "xor":
+			fmt.Printf("%x\n", ciphers.Xor(&p))
 		default:
 			fmt.Println("Bad input")
 		}
