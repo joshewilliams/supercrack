@@ -17,11 +17,9 @@ func main() {
 		fmt.Printf("Cracking %s cipher\n", p.Cipher)
 		switch p.Cipher {
 		case "caesar":
-			ciphertext := string(p.Ciphertext)
-			ciphers.Caesar(ciphertext).WriteOutput(p.Output)
+			ciphers.Caesar(string(p.Ciphertext)).WriteOutput(p.Output)
 		case "transposition":
-			ciphertext := string(p.Ciphertext)
-			ciphers.Transposition(ciphertext).WriteOutput(p.Output)
+			ciphers.Transposition(string(p.Ciphertext)).WriteOutput(p.Output)
 		default:
 			fmt.Println("Bad input")
 		}

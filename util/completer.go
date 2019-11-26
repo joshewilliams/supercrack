@@ -20,6 +20,8 @@ func GeneralOptionsCompleter(d prompt.Document) []prompt.Suggest {
 		{Text: "output=", Description: "Output file name"},
 		{Text: "info", Description: "Print current parameters"},
 		{Text: "run", Description: "Execute cracking"},
+		{Text: "hex", Description: "Ciphertext is hex encoded"},
+		{Text: "b64", Description: "Ciphertext is b64 encoded"},
 		{Text: "exit", Description: "Exit this program"},
 	}
 	return prompt.FilterHasPrefix(s, d.GetWordBeforeCursor(), true)

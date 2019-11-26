@@ -1,6 +1,8 @@
 package util
 
 import (
+	"encoding/base64"
+	"encoding/hex"
 	"fmt"
 	"io/ioutil"
 	"os"
@@ -65,6 +67,22 @@ menuLoop:
 			fmt.Println(p)
 		case "run":
 			break menuLoop
+		case "hex":
+			var err error
+			len, err := hex.Decode(p.Ciphertext, p.Ciphertext)
+			if err != nil {
+				fmt.Println("Input not hex encoded")
+				continue menuLoop
+			}
+			p.Ciphertext = p.Ciphertext[:len]
+		case "b64":
+			var err error
+			len, err := base64.StdEncoding.Decode(p.Ciphertext, p.Ciphertext)
+			if err != nil {
+				fmt.Println("Input not b64 encoded")
+				continue menuLoop
+			}
+			p.Ciphertext = p.Ciphertext[:len]
 		case "exit":
 			os.Exit(0)
 		default:
