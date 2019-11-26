@@ -67,7 +67,7 @@ menuLoop:
 			fmt.Println(p)
 		case "run":
 			break menuLoop
-		case "hex":
+		case "hexd":
 			var err error
 			len, err := hex.Decode(p.Ciphertext, p.Ciphertext)
 			if err != nil {
@@ -75,7 +75,10 @@ menuLoop:
 				continue menuLoop
 			}
 			p.Ciphertext = p.Ciphertext[:len]
-		case "b64":
+		case "hexe":
+			tmp := hex.EncodeToString(p.Ciphertext)
+			p.Ciphertext = []byte(tmp)
+		case "b64d":
 			var err error
 			len, err := base64.StdEncoding.Decode(p.Ciphertext, p.Ciphertext)
 			if err != nil {
@@ -83,6 +86,9 @@ menuLoop:
 				continue menuLoop
 			}
 			p.Ciphertext = p.Ciphertext[:len]
+		case "b64e":
+			tmp := base64.StdEncoding.EncodeToString(p.Ciphertext)
+			p.Ciphertext = []byte(tmp)
 		case "exit":
 			os.Exit(0)
 		default:
