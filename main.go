@@ -8,8 +8,6 @@ import (
 )
 
 func main() {
-	fmt.Printf("SUPERCRACK\n\n")
-
 	for {
 		p := util.Parameters{}
 
