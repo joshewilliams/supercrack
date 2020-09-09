@@ -8,7 +8,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/c-bata/go-prompt"
+	//	"github.com/c-bata/go-prompt"
 )
 
 func help() {
@@ -18,13 +18,22 @@ func help() {
 	fmt.Printf("GENERAL OPTIONS:\n\n")
 	fmt.Printf("ciphertext=    Ciphertext string to crack\n")
 	fmt.Printf("file=          Input filename\n")
-	fmt.Printf("output=        Output filename\n\n")
+	fmt.Printf("output=        Output filename\n")
+	fmt.Printf("info           Print current options\n")
+	fmt.Printf("run            Crack with given selections\n")
+	fmt.Printf("hex(d|e)       Hex decode or encode input\n")
+	fmt.Printf("b64(d|e)       B64 decode or encode input\n")
+	fmt.Printf("exit           Exit supercrack\n\n")
 }
 
 func MainMenu(p *Parameters) {
 menuLoop:
 	for {
-		cmd := prompt.Input("supercrack > ", MainMenuCompleter, prompt.OptionPrefixTextColor(prompt.Red))
+		//cmd := prompt.Input("supercrack > ", MainMenuCompleter, prompt.OptionPrefixTextColor(prompt.Red))
+		fmt.Printf("supercrack > ")
+
+		var cmd string
+		fmt.Scanln(&cmd)
 
 		switch strings.ToLower(cmd) {
 		case "caesar":
@@ -50,7 +59,11 @@ menuLoop:
 func GeneralOptionsMenu(p *Parameters) {
 menuLoop:
 	for {
-		cmd := prompt.Input("supercrack > ", GeneralOptionsCompleter, prompt.OptionPrefixTextColor(prompt.Red))
+		//cmd := prompt.Input("supercrack > ", GeneralOptionsCompleter, prompt.OptionPrefixTextColor(prompt.Red))
+		fmt.Printf("supercrack > ")
+		var cmd string
+		fmt.Scanln(&cmd)
+		
 		splitCmd := strings.SplitN(cmd, "=", 2)
 
 		switch splitCmd[0] {
